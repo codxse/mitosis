@@ -1,0 +1,691 @@
+/*
+Theme Name: Mitosis
+Theme URI: http://titiknadi.com/mitosis
+Author: Nadiar Sys
+Author URI: https://titiknadi.com/mitosis
+Description: A responsive, SEO-ready theme framework with extendable layout options and custom options.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: mitosis
+*/
+
+:root {
+    --primary-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --container-max-width: calc(1200px + 6em);
+    --column-primary: 740px;
+    --column-secondary: 300px;
+    --column-tertiary: 160px;
+    --bg-primary: #fff;
+    --bg-secondary: #eee;
+    --bg-tertiary: #f9f9f9;
+    --bg-site-header: rgba(248, 248, 248, 0.95);
+    --bg-site-header-shrink: rgba(248, 248, 248, 0.75);
+    --color-primary: #111;
+    --color-meta: #555;
+    --color-border-primary: #ddd;
+    --color-border-secondary: rgba(234, 234, 234, 0.3);
+    --color-link-primary: #ff3939;
+    --color-link-hover: #ff0000;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--primary-font);
+    font-size: 1em;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    background: var(--bg-primary);
+    color: var(--color-primary);
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
+input, button, textarea, select {
+    font: inherit;
+    color: var(--color-primary);
+}
+
+a {
+    color: var(--color-link-primary);
+    transition: 0.3s;
+}
+
+a:hover {
+    color: VAR(--color-link-hover);
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
+button {
+    cursor: pointer;
+}
+
+.site-header, .site-content, .site-footer {
+    width: 100%;
+}
+
+.header-container, .site-info, .search-close, .comment-article {
+    padding: 1rem;
+}
+
+.post, .post-navigation, .comments-area, .pagination {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.header-container, .container, .site-info {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+}
+
+.entry-title a, .pagination a, .menu a,
+.related-post-title a, .related-post-category a {
+    text-decoration: none;
+}
+
+.entry-title, .related-post-title, .comments-title {
+    line-height: 1.4;
+}
+
+.layout-one-column .entry-title,
+.layout-one-column .related-posts,
+.layout-one-column .post figure.aligncenter:has(> .size-large),
+.layout-one-column .post figure.aligncenter:has(> .size-full),
+.layout-one-column .post .alignwide,
+.layout-one-column .post figure.wp-block-image.size-large:not(.alignright),
+.layout-one-column .post figure.wp-block-image.size-large:not(.alignleft) {
+    margin-left: -6rem;
+    margin-right: -6rem;
+}
+
+.site-header, .site-header.shrink, img.custom-logo, .shrink img.custom-logo,
+.main-navigation ul, .shrink .main-navigation ul,
+.search-toggle, .shrink .search-toggle
+.header-container, .shrink .header-container{
+    transition: all 0.3s ease-in-out;
+}
+
+/**
+ * Header
+ * ==============================
+ */
+ 
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: var(--bg-site-header);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border-secondary);
+    
+}
+
+img.custom-logo {
+    max-width: 234px;
+    max-height: 60px;
+}
+
+.shrink img.custom-logo {
+    max-width: 195px;
+    max-height: 50px;
+}
+
+.site-header.shrink {
+    background: var(--bg-site-header-shrink);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.header-container, .main-navigation, .search-toggle, .menu-toggle  {
+    display: flex;
+    align-items: center;
+}
+
+.search-toggle, .menu-toggle, .search-instruction, .search-overlay .search-submit {
+    font-size: 2em;
+    color: var(--color-meta);
+}
+
+.shrink .search-toggle, .shrink .menu-toggle {
+    font-size: 1.6em;
+}
+
+.shrink .header-container {
+    padding: 0.5em 1em;
+}
+
+.nav-separator {
+    border-left: 1px solid var(--color-border-primary);
+}
+
+/**
+ * Layout
+ * ==============================
+ */
+
+.container {
+    padding-top: 160px;
+    display: flex;
+    gap: 2rem;
+}
+
+.layout-one-column {
+    max-width: calc(var(--column-primary) + 4rem);
+    width: 100%;
+    margin: 0 auto;
+}
+
+.layout-two-left, .layout-two-right {
+    max-width: calc(var(--column-primary) + var(--column-secondary) + 4rem);
+    width: 100%;
+    margin: 0 auto;
+}
+
+.site-main {
+    max-width: var(--column-primary);
+    width: 100%;
+}
+
+.layout-one-column .site-main {
+    max-width: 100%;
+}
+
+.layout-three-column .left-sidebar,
+.layout-two-left .left-sidebar, .layout-two-right .right-sidebar {
+    max-width: var(--column-secondary);
+    width: 100%;
+}
+
+.layout-three-column .right-sidebar {
+    max-width: var(--column-tertiary);
+    width: 100%;
+}
+
+.site-info {
+    text-align: center;
+    border-top: 1px solid var(--color-border-primary);
+}
+
+/**
+ * Top navigation
+ * ==============================
+ */
+
+.header-navigation {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    gap: 2rem;
+}
+
+.menu-toggle, .search-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.main-navigation ul, .main-navigation-mobile ul {
+    list-style: none;
+    font-weight: 700;
+}
+
+.main-navigation ul {
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.shrink .main-navigation ul {
+    font-size: 0.95em;
+}
+
+.main-navigation ul ul, .main-navigation-mobile ul ul {
+    display: none;
+}
+
+#site-navigation-mobile {
+    display: none;
+}
+
+/**
+ * Search overlay
+ * =============================
+ */
+
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-primary);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 9999;
+    backdrop-filter: blur(6px);
+}
+
+.search-close {
+    color: var(--color-parimary);
+}
+
+.search-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-overlay-content {
+    width: 90%;
+    max-width: var(--column-primary);
+    position: relative;
+}
+
+.search-overlay .search-form, .not-found .search-form {
+    display: flex;
+    padding-bottom: 1rem;
+}
+
+.search-overlay .search-form > label, .not-found .search-form > label  {
+    flex-grow: 1;
+}
+
+.search-overlay .search-field, .not-found .search-field {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid var(--color-border-primary);
+    font-size: 2em;
+    font-weight: 900;
+    background: none;
+}
+
+.search-overlay .search-field::placeholder,
+.not-found .search-field::placeholder {
+    color: var(--color-primary);
+}
+
+.search-field:focus, .search-field:focus{
+    outline: none;
+}
+
+.search-overlay .search-submit, .not-found .search-submit {
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #555;
+}
+
+.search-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--color-parimary);
+    transition: color 0.3s ease;
+}
+
+.search-instruction {
+    font-size: 1em;
+}
+
+.error404 .site-info {
+    border-top: 0;
+}
+
+/**
+ * Posts
+ * ==============================
+ */
+ 
+.layout-one-column .entry-title {
+    text-align: center;
+}
+
+.post h2, .post h3, .post figure img, .related-post-title {
+    margin-bottom: 0.5rem;
+} 
+
+.post, .entry-header, .page-header, 
+.site-content, .single .entry-content,
+.widget, .related-posts, .post-navigation,
+.comment-article, .comment-respond {
+    margin-bottom: 3rem;
+}
+
+.entry-title, .featured-image, .widget-title,
+.related-posts-title {
+    margin-bottom: 0.75rem;
+}
+ 
+.post ul, .post ol, .post ul ul, .post li {
+    margin-bottom: 0;
+    padding-bottom: 0.25rem;
+}
+ 
+.single .post, .page .post,
+h2.entry-title, .site-main p, .post ul, .post ol,
+.post .wp-caption, .post .wp-block-image,
+.comments-title, .wp-block-columns {
+    margin-bottom: 1.5rem;
+}
+
+.entry-title {
+    font-size: 3em;
+    font-weight: 900;
+}
+
+.entry-meta, .entry-meta a, .entry-footer, .entry-footer a,
+.site-info, .related-post-meta, .related-post-meta a,
+figcaption, .wp-caption-text, .wp-element-caption,
+.comment-time, .comment-form label {
+    color: var(--color-meta);
+    font-size: 0.95rem;
+}
+
+.entry-meta, .related-post-meta {
+    display: flex;
+    gap: 0.75em;
+}
+
+.meta {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25em;
+    line-height: 1.65;
+}
+
+.entru-footer-meta li:before {
+    content: "\e902";
+}
+
+.comments-link {
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.entry-footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.layout-one-column .post figure.aligncenter:has(> .size-large),
+.layout-one-column .post figure.aligncenter:has(> .size-full),
+.layout-one-column .post .alignwide,
+.layout-one-column .post figure.wp-block-image.size-large:not(.alignright),
+.layout-one-column .post figure.wp-block-image.size-large:not(.alignleft) {
+    width: calc( var(--column-primary) + 12rem + 2rem )  !important;
+}
+
+img.wp-post-image, .related-post img, .wp-caption img, .wp-block-image img {
+    border: 1px solid var(--color-border-primary);
+}
+
+.aligncenter figcaption,
+.alignleft figcaption,
+.alignright figcaption {
+    text-align: center;
+}
+
+.aligncenter img {
+    margin: 0 auto;
+}
+
+.alignleft {
+    float: left;
+    margin-right: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.alignright {
+    float: right;
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+p.has-background, pre.wp-block-code  {
+    padding: 1rem;
+}
+
+pre.wp-block-code {
+    width: 100%;
+    overflow: auto;
+    border: 1px solid var(--color-border-primary);
+    background: var(--bg-tertiary);
+}
+
+/**
+ * Pagination
+ * ==============================
+ */
+ 
+.pagination {
+    display: flex;
+    gap: 0.5rem;
+    padding-top: 3rem;
+}
+ 
+.page-numbers, .dots {
+    padding: 0.5rem 0.85rem;
+}
+
+.page-numbers {
+    background: var(--bg-secondary);
+}
+
+.prev, .next, .current {
+    display: flex;
+    align-items: center;
+    padding: 0.5em;
+    background: none;
+    font-weight: 700;
+}
+
+/**
+ * Accessibility - Screen Reader Text
+ * ==============================
+ */
+
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    clip: auto !important;
+    clip-path: none;
+    color: #21759b;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+}
+
+@media (max-width: 64rem) {
+    
+    /**
+     * Layout
+     * ==============================
+     */
+
+    .layout-one-column .entry-title,
+    .layout-one-column .related-posts,
+    .layout-one-column .post figure.aligncenter:has(> .size-large),
+    .layout-one-column .post figure.aligncenter:has(> .size-full) {
+        text-align: left;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .layout-one-column .post figure.aligncenter:has(> .size-large),
+    .layout-one-column .post figure.aligncenter:has(> .size-full),
+    .layout-one-column .post .alignwide,
+    .layout-one-column .post figure.wp-block-image.size-large:not(.alignright),
+    .layout-one-column .post figure.wp-block-image.size-large:not(.alignleft) {
+        width: 100% !important;
+    }
+        
+    .container {
+        padding-top: 120px;
+    }
+}
+
+@media (max-width: 52rem) {
+    
+    /**
+     * Layout
+     * ==============================
+     */
+    
+    .container {
+        flex-direction: column;
+    }
+    
+    .site-main,
+    .layout-three-column .left-sidebar,
+    .layout-two-left .left-sidebar,
+    .layout-two-right .right-sidebar {
+        max-width: calc( 52rem - 2rem );
+    }
+    
+    .site-main {
+        order: 0;
+    }
+    
+    .layout-three-column .left-sidebar {
+        order: 1;
+    }
+    
+    .layout-two-left .left-sidebar, .layout-two-right .right-sidebar {
+        order: 2;
+    }
+}
+
+@media (max-width: 45rem) {
+    .post, .post-navigation, .comments-area, .pagination,
+    .header-container, .site-info, .search-close, .comment-article,
+    .related-posts {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+
+    /**
+     * Header
+     * =============================
+     */
+     
+    img.custom-logo {
+        max-width: 195px;
+        max-height: 50px;
+    }
+    
+    .search-toggle, .menu-toggle {
+        font-size: 1.6em;
+    }
+    
+    .header-container {
+        padding: 0.5rem 1rem;
+    }
+     
+    /**
+     * Top navigation
+     * ==============================
+     */
+     
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .main-navigation ul {
+        font-size: 0.95em;
+    }
+    
+    .main-navigation ul.primary-menu {
+        display: none;
+    }
+    
+    #site-navigation-mobile.active {
+        display: flex;
+        padding: 1rem;
+        text-align: right;
+        width: 100%;
+        justify-content: flex-end;
+    }
+    
+    #site-navigation-mobile li.menu-item {
+        line-height: 1.8;
+    }
+
+    /**
+     * Layout
+     * ==============================
+     */
+     
+    .container {
+        padding-top: 6rem;
+    }
+    
+    /**
+     * Posts
+     * ==============================
+     */
+        
+    .entry-title {
+        font-size: 1.8em;
+    }
+}

@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'mitosis';
+  src:  url('fonts/mitosis.eot?3skpz0');
+  src:  url('fonts/mitosis.eot?3skpz0#iefix') format('embedded-opentype'),
+    url('fonts/mitosis.ttf?3skpz0') format('truetype'),
+    url('fonts/mitosis.woff?3skpz0') format('woff'),
+    url('fonts/mitosis.svg?3skpz0#mitosis') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'mitosis' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-chevron-left:before {
+  content: "\e900";
+}
+.icon-chevron-right:before {
+  content: "\e901";
+}
+.icon-calendar:before {
+  content: "\e902";
+}
+.icon-chat:before {
+  content: "\e903";
+}
+.icon-folder:before {
+  content: "\e904";
+}
+.icon-magnifying-glass:before {
+  content: "\e905";
+}
+.icon-menu:before {
+  content: "\e906";
+}
+.icon-pencil:before {
+  content: "\e907";
+}
+.icon-price-tag:before {
+  content: "\e908";
+}
+.icon-stopwatch:before {
+  content: "\e909";
+}
+.icon-twitter:before {
+  content: "\e90a";
+}

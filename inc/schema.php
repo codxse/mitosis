@@ -81,8 +81,8 @@ function mitosis_add_schema_markup() {
             '@type' => 'WebPage',
             '@id' => get_permalink()
         ),
-        'headline' => wp_strip_tags(get_the_title()),
-        'description' => wp_strip_tags(get_the_excerpt()),
+        'headline' => wp_strip_all_tags(get_the_title()),
+        'description' => wp_strip_all_tags(get_the_excerpt()),
         'datePublished' => get_the_date('c'),
         'dateModified' => get_the_modified_date('c')
     );
@@ -179,3 +179,10 @@ function mitosis_get_featured_image_schema($image_id) {
 
 // Add schema markup if no SEO plugin is handling it
 add_action('wp_footer', 'mitosis_add_schema_markup');
+
+function mitosis_get_site_logo_url() {
+    $custom_logo_id = get_theme_mod( 'custom_logo' );
+    $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+    
+    return $image[0];
+}

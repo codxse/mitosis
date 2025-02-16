@@ -115,11 +115,7 @@ button {
 
 .layout-one-column .entry-title,
 .layout-one-column .related-posts,
-.layout-one-column .post figure.aligncenter:has(> .size-large),
-.layout-one-column .post figure.aligncenter:has(> .size-full),
-.layout-one-column .post .alignwide,
-.layout-one-column .post figure.wp-block-image.size-large:not(.alignright),
-.layout-one-column .post figure.wp-block-image.size-large:not(.alignleft) {
+.layout-one-column .post .alignwide {
     margin-left: -6rem;
     margin-right: -6rem;
 }
@@ -446,11 +442,7 @@ figcaption, .wp-caption-text, .wp-element-caption,
     flex-direction: column;
 }
 
-.layout-one-column .post figure.aligncenter:has(> .size-large),
-.layout-one-column .post figure.aligncenter:has(> .size-full),
-.layout-one-column .post .alignwide,
-.layout-one-column .post figure.wp-block-image.size-large:not(.alignright),
-.layout-one-column .post figure.wp-block-image.size-large:not(.alignleft) {
+.layout-one-column .post .alignwide {
     width: calc( var(--column-primary) + 12rem + 2rem )  !important;
 }
 
@@ -458,10 +450,17 @@ img.wp-post-image, .related-post img, .wp-caption img, .wp-block-image img {
     border: 1px solid var(--color-border-primary);
 }
 
-.aligncenter figcaption,
+.post figure:not(.alignwide) {
+    max-width: 100% !important;
+}
+
+.aligncenter figcaption {
+    text-align: center;
+}
+
 .alignleft figcaption,
 .alignright figcaption {
-    text-align: center;
+    text-align: left;
 }
 
 .aligncenter img {
@@ -564,21 +563,16 @@ pre.wp-block-code {
 
     .layout-one-column .entry-title,
     .layout-one-column .related-posts,
-    .layout-one-column .post figure.aligncenter:has(> .size-large),
-    .layout-one-column .post figure.aligncenter:has(> .size-full) {
+    .layout-one-column .post .alignwide {
         text-align: left;
         margin-left: 0;
         margin-right: 0;
     }
 
-    .layout-one-column .post figure.aligncenter:has(> .size-large),
-    .layout-one-column .post figure.aligncenter:has(> .size-full),
-    .layout-one-column .post .alignwide,
-    .layout-one-column .post figure.wp-block-image.size-large:not(.alignright),
-    .layout-one-column .post figure.wp-block-image.size-large:not(.alignleft) {
+    .layout-one-column .post .alignwide {
         width: 100% !important;
     }
-        
+
     .container {
         padding-top: 120px;
     }
@@ -688,4 +682,11 @@ pre.wp-block-code {
     .entry-title {
         font-size: 1.8em;
     }
+    
+    .alignright, .alignleft, .aligncenter {
+        float: none;
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
+

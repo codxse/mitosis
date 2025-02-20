@@ -4,9 +4,14 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php wp_head(); ?>
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="FvepyLJkfiyPN6W5nbDQHQ" async></script>
 </head>
 
 <body <?php body_class(); ?>>
+    
+<?php
+$enable_h1 = is_home() || is_front_page();
+?>
     
     
 <header id="masthead" class="site-header">
@@ -15,7 +20,11 @@
             <?php
             // Display custom logo if available, otherwise show site title.
             if (function_exists('the_custom_logo') && has_custom_logo()) {
-                the_custom_logo();
+                printf(
+                    '<%1$s class="site-title">%2$s</%1$s>',
+                    $enable_h1 ? 'h1' : 'div',
+                    get_custom_logo()
+                );
             } else {
                 ?>
                 <h1 class="site-title">

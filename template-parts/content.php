@@ -19,6 +19,11 @@
         else :
             the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
         endif;
+        
+        $show_excerpt = get_post_meta(get_the_ID(), '_mitosis_show_excerpt', true);
+        if ($show_excerpt === 'show' || ($show_excerpt === 'default' && get_theme_mod('mitosis_show_excerpt', false))) {
+            echo '<p class="entry-excerpt">' . get_the_excerpt() . '</p>';
+        }
 
         // Check featured image position
         if (mitosis_get_featured_image_position() === 'below') {

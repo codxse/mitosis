@@ -18,6 +18,7 @@ function mitosis_customize_register( $wp_customize ) {
 		'default'           => 'two-right',
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
+	
 
     $wp_customize->add_control( 'mitosis_default_layout', array(
     	'label'    => __( 'Default Layout', 'mitosis' ),
@@ -30,6 +31,19 @@ function mitosis_customize_register( $wp_customize ) {
     		'two-right'    => __( 'Two Column (Post, Sidebar Right)', 'mitosis' ),
     	),
     ) );
+    
+    // Show excerpt
+    $wp_customize->add_setting( 'mitosis_show_excerpt', array(
+		'default'           => false,
+		'sanitize_callback' => 'wp_validate_boolean',
+	) );
+	
+	$wp_customize->add_control( 'mitosis_show_excerpt', array(
+		'label'    => __( 'Show Excerpt', 'mitosis' ),
+		'description' => __('Show excerpt below the title on single post pages.', 'mitosis'),
+		'section'  => 'mitosis_theme_options',
+		'type'     => 'checkbox',
+	) );
 
 	// Option: Show/Hide Subtitle.
 	$wp_customize->add_setting( 'mitosis_show_subtitle', array(

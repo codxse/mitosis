@@ -135,6 +135,20 @@ add_action('wp_head', 'mitosis_add_pagination_meta', 1);
 add_action('wp_footer', 'mitosis_add_schema_markup');
 
 
+function mitosis_custom_logo( $html ) {
+    // Get the site name or use a default
+    $site_title = get_bloginfo( 'name' );
+    if ( empty( $site_title ) ) {
+        $site_title = 'Visit our homepage'; // Fallback
+    }
+
+    // Add the title attribute to the anchor tag
+    $html = str_replace( '<a ', '<a title="' . esc_attr( $site_title ) . '" ', $html );
+
+    return $html;
+}
+add_filter( 'get_custom_logo', 'mitosis_custom_logo' );
+
 // Output custom header scripts.
 function mitosis_custom_header_scripts() {
 	// Global header scripts set via Customizer.

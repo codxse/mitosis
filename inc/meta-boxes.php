@@ -15,6 +15,15 @@ function mitosis_add_meta_boxes() {
 		'side',
 		'default'
 	);
+	
+	add_meta_box(
+        'mitosis_excerpt_options_meta_box',
+        __('Excerpt Display', 'mitosis'),
+        'mitosis_excerpt_options_meta_box_callback',
+        ['post', 'page'],
+        'side',
+        'high'
+    );
 }
 add_action( 'add_meta_boxes', 'mitosis_add_meta_boxes' );
 
@@ -50,6 +59,37 @@ function mitosis_meta_box_callback( $post ) {
 	<?php
 }
 
+function mitosis_excerpt_options_meta_box_callback($post) {
+	wp_nonce_field( 'mitosis_excerpt_options_meta_box', 'mitosis_excerpt_options_meta_box_nonce' );
+
+    $show_excerpt = get_post_meta($post->ID, '_mitosis_show_excerpt', true);
+
+    if (empty($show_excerpt)) {
+        $show_excerpt = 'default'; // Default to theme settings
+    }
+    ?>
+    <div class="mitosis-excerpt-options">
+        <p><?php _e('Excerpt Display:', 'mitosis'); ?></p>
+
+        <label style="display: block; margin: 5px 0;">
+            <input type="radio" name="mitosis_show_excerpt" value="default" <?php checked($show_excerpt, 'default'); ?>>
+            <span><?php _e('Use Theme Default', 'mitosis'); ?></span>
+        </label>
+
+        <label style="display: block; margin: 5px 0;">
+            <input type="radio" name="mitosis_show_excerpt" value="show" <?php checked($show_excerpt, 'show'); ?>>
+            <span><?php _e('Show', 'mitosis'); ?></span>
+        </label>
+
+        <label style="display: block; margin: 5px 0;">
+            <input type="radio" name="mitosis_show_excerpt" value="hide" <?php checked($show_excerpt, 'hide'); ?>>
+            <span><?php _e('Hide', 'mitosis'); ?></span>
+        </label>
+
+    </div>
+    <?php
+}
+
 // Save meta box content.
 function mitosis_save_meta_box_data( $post_id ) {
 	// Check if our nonce is set.
@@ -74,6 +114,19 @@ function mitosis_save_meta_box_data( $post_id ) {
 			return;
 		}
 	}
+	
+	if ( ! isset($_POST['mitosis_excerpt_options_meta_box_nonce'] ) ) {
+        return;
+    }
+    
+    
+    if ( ! wp_verify_nonce( $_POST[ 'mitosis_excerpt_options_meta_box_nonce' ], 'mitosis_excerpt_options_meta_box' ) ) {
+        return;
+    }
+
+    if (isset($_POST['mitosis_show_excerpt'])) {
+        update_post_meta($post_id, '_mitosis_show_excerpt', sanitize_text_field($_POST['mitosis_show_excerpt']));
+    }
 
 	// Sanitize and save layout.
 	if ( isset( $_POST['mitosis_layout'] ) ) {

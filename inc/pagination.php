@@ -61,14 +61,14 @@ function mitosis_pagination() {
     
     // Previous link
     if ($paged > 1) {
-        echo '<a class="prev page-numbers" href="' . esc_url(get_previous_posts_page_link()) . '">' . 
+        echo '<a class="prev page-numbers" aria-label="Go to previous page" href="' . esc_url(get_previous_posts_page_link()) . '">' . 
              '<i class="icon-chevron-left"></i>' . 
              '</a>';
     }
 
     // First page
     if ($paged > 3) {
-        echo '<a class="page-numbers" href="' . esc_url(get_pagenum_link(1)) . '">1</a>';
+        echo '<a class="page-numbers" aria-label="Go to first page" href="' . esc_url(get_pagenum_link(1)) . '">1</a>';
         if ($paged > 4) {
             echo '<span class="dots">...</span>';
         }
@@ -79,7 +79,7 @@ function mitosis_pagination() {
         if ($i === $paged) {
             echo '<span aria-current="page" class="page-numbers current">' . $i . '</span>';
         } else {
-            echo '<a class="page-numbers" href="' . esc_url(get_pagenum_link($i)) . '">' . $i . '</a>';
+            echo '<a class="page-numbers" aria-label="Go to page ' . esc_url(get_pagenum_link($i)) . '" href="' . esc_url(get_pagenum_link($i)) . '">' . $i . '</a>';
         }
     }
 
@@ -88,12 +88,12 @@ function mitosis_pagination() {
         if ($paged < $max_pages - 3) {
             echo '<span class="dots">...</span>';
         }
-        echo '<a class="page-numbers" href="' . esc_url(get_pagenum_link($max_pages)) . '">' . $max_pages . '</a>';
+        echo '<a class="page-numbers" aria-label="Go to page ' . esc_url(get_pagenum_link($max_pages)) . '" href="' . esc_url(get_pagenum_link($max_pages)) . '">' . $max_pages . '</a>';
     }
 
     // Next link
     if ($paged < $max_pages) {
-        echo '<a class="next page-numbers" href="' . esc_url(get_next_posts_page_link()) . '">' . 
+        echo '<a class="next page-numbers" aria-label="Go to next page" href="' . esc_url(get_next_posts_page_link()) . '">' . 
              '<i class="icon-chevron-right"></i>' . 
              '</a>';
     }

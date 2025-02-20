@@ -64,7 +64,7 @@ function mitosis_add_toc_to_content($content) {
             $current_depth = 2;
         } elseif ($heading_level === 3) {
             if ($current_depth === 2) {
-                $toc .= '<ul class="toc-sub">';
+                $toc .= '<li class="toc-level-2 toc-has-items"><ul class="toc-sub">';
             }
             $toc .= '<li class="toc-level-3">';
             $current_depth = 3;
@@ -79,7 +79,7 @@ function mitosis_add_toc_to_content($content) {
     }
 
     if ($current_depth === 3) {
-        $toc .= '</ul></li>';
+        $toc .= '</ul></li></li>';
     }
 
     $toc .= '</ul></nav></div>';

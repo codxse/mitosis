@@ -68,6 +68,22 @@ if (!function_exists('mitosis_posted_on')) :
     }
 endif;
 
+function write_created_at() {
+    $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+    $time_string = sprintf($time_string,
+        esc_attr(get_the_date(DATE_W3C)),
+        esc_html(get_the_date())
+    );
+    
+    $posted_on = sprintf(
+        /* translators: %s: post date. */
+        esc_html_x('Posted on %s', 'post date', 'mitosis'),
+        '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
+    );
+    
+    echo '<span class="posted-on meta"><i class="icon-calendar"></i>' . $posted_on . '</span>';
+}
+
 if (!function_exists('mitosis_entry_footer')) :
     /**
      * Prints HTML with meta information for categories and tags.
@@ -78,19 +94,7 @@ if (!function_exists('mitosis_entry_footer')) :
             
             // Created date
             if (get_theme_mod('mitosis_show_created_date', true)) {
-                $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-                $time_string = sprintf($time_string,
-                    esc_attr(get_the_date(DATE_W3C)),
-                    esc_html(get_the_date())
-                );
-                
-                $posted_on = sprintf(
-                    /* translators: %s: post date. */
-                    esc_html_x('Posted on %s', 'post date', 'mitosis'),
-                    '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
-                );
-                
-                echo '<span class="posted-on meta"><i class="icon-calendar"></i>' . $posted_on . '</span>';
+                write_created_at();
             }
     
             // Updated date
@@ -102,6 +106,7 @@ if (!function_exists('mitosis_entry_footer')) :
                         esc_html(get_the_modified_date())
                     );
                     
+                        
                     $updated_on = sprintf(
                         /* translators: %s: post modified date. */
                         esc_html_x('Updated on %s', 'post modified date', 'mitosis'),
@@ -109,6 +114,8 @@ if (!function_exists('mitosis_entry_footer')) :
                     );
                     
                     echo '<span class="updated-on meta"><i class="icon-calendar"></i>' . $updated_on . '</span>';
+                } else {
+                    write_created_at();
                 }
             }
         

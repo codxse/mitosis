@@ -60,13 +60,13 @@ $enable_h1 = is_home() || is_front_page();
             <!-- Search Toggle Button -->
             <button id="search-toggle" class="search-toggle" aria-expanded="false">
                 <span class="screen-reader-text"><?php esc_html_e('Toggle Search', 'mitosis'); ?></span>
-                <i class="icon-magnifying-glass"></i>
+                <i class="icon icon-magnifying-glass"></i>
             </button>
             
             <!-- Responsive Menu Toggle Button -->
             <button id="menu-toggle" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
                 <span class="screen-reader-text"><?php esc_html_e('Primary Menu', 'mitosis'); ?></span>
-                <i class="icon-menu"></i>
+                <i class="icon icon-menu"></i>
             </button>
         </div>
     </div>

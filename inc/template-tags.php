@@ -34,13 +34,13 @@ if (!function_exists('mitosis_posted_on')) :
                 $byline = '<span class="author vcard"><a href="' . esc_url($twitter_profile) . '" target="_blank" rel="noopener noreferrer">' . esc_html($author_name) . '</a></span>';
             }
 
-            $output .= '<span class="byline meta"><i class="icon-twitter"></i>' . $byline . '</span>';
+            $output .= '<span class="byline meta"><i class="icon icon-twitter"></i>' . $byline . '</span>';
         }
         
         // Estimated Reading Time
         if (get_theme_mod('mitosis_show_reading_time', true)) {
             $reading_time = mitosis_get_reading_time(get_the_content());
-            $output .= '<span class="reading-time meta"><i class="icon-stopwatch"></i>' . $reading_time . '</span>';
+            $output .= '<span class="reading-time meta"><i class="icon icon-stopwatch"></i>' . $reading_time . '</span>';
         }
 
         // Comment Count
@@ -59,7 +59,7 @@ if (!function_exists('mitosis_posted_on')) :
                     number_format_i18n($comment_count)
                 );
                 
-                $output .= '<span class="comments-link meta"><i class="icon-chat"></i><a href="' . esc_url(get_comments_link()) . '">' 
+                $output .= '<span class="comments-link meta"><i class="icon icon-chat"></i><a href="' . esc_url(get_comments_link()) . '">' 
                     . $comment_text . '</a></span>';
             }
         }
@@ -81,7 +81,7 @@ function write_created_at() {
         '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
     );
     
-    echo '<span class="posted-on meta"><i class="icon-calendar"></i>' . $posted_on . '</span>';
+    echo '<span class="posted-on meta"><i class="icon icon-calendar"></i>' . $posted_on . '</span>';
 }
 
 if (!function_exists('mitosis_entry_footer')) :
@@ -113,7 +113,7 @@ if (!function_exists('mitosis_entry_footer')) :
                         '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
                     );
                     
-                    echo '<span class="updated-on meta"><i class="icon-calendar"></i>' . $updated_on . '</span>';
+                    echo '<span class="updated-on meta"><i class="icon icon-calendar"></i>' . $updated_on . '</span>';
                 } else {
                     write_created_at();
                 }
@@ -123,7 +123,7 @@ if (!function_exists('mitosis_entry_footer')) :
             if (get_theme_mod('mitosis_show_categories', true)) {
                 $categories_list = get_the_category_list(esc_html__(', ', 'mitosis'));
                 if ($categories_list) {
-                    printf('<span class="cat-links meta"><i class="icon-folder"></i><span class="categories">' . esc_html__('Posted in %1$s', 'mitosis') . '</span></span>', $categories_list);
+                    printf('<span class="cat-links meta"><i class="icon icon-folder"></i><span class="categories">' . esc_html__('Posted in %1$s', 'mitosis') . '</span></span>', $categories_list);
                 }
             }
 
@@ -131,7 +131,7 @@ if (!function_exists('mitosis_entry_footer')) :
             if (get_theme_mod('mitosis_show_tags', true)) {
                 $tags_list = get_the_tag_list('', esc_html__(', ', 'mitosis'));
                 if ($tags_list) {
-                    printf('<span class="tags-links meta"><i class="icon-price-tag"></i><span class="tags">' . esc_html__('Tagged %1$s', 'mitosis') . '</span></span>', $tags_list);
+                    printf('<span class="tags-links meta"><i class="icon icon-price-tag"></i><span class="tags">' . esc_html__('Tagged %1$s', 'mitosis') . '</span></span>', $tags_list);
                 }
             }
         }
@@ -150,7 +150,7 @@ if (!function_exists('mitosis_entry_footer')) :
                 ),
                 get_the_title()
             ),
-            '<span class="edit-link meta"><i class="icon-pencil"></i>',
+            '<span class="edit-link meta"><i class="icon icon-pencil"></i>',
             '</span>'
         );
     }

@@ -1,16 +1,16 @@
 @font-face {
   font-family: 'mitosis';
-  src:  url('fonts/mitosis.eot?3skpz0');
-  src:  url('fonts/mitosis.eot?3skpz0#iefix') format('embedded-opentype'),
-    url('fonts/mitosis.ttf?3skpz0') format('truetype'),
-    url('fonts/mitosis.woff?3skpz0') format('woff'),
-    url('fonts/mitosis.svg?3skpz0#mitosis') format('svg');
+  src:  url('fonts/mitosis.eot?ajod18');
+  src:  url('fonts/mitosis.eot?ajod18#iefix') format('embedded-opentype'),
+    url('fonts/mitosis.ttf?ajod18') format('truetype'),
+    url('fonts/mitosis.woff?ajod18') format('woff'),
+    url('fonts/mitosis.svg?ajod18#mitosis') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-i {
+.icon {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'mitosis' !important;
   speak: never;
@@ -25,6 +25,27 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-x:before {
+  content: "\e90b";
+}
+.icon-twitter:before {
+  content: "\e90b";
+}
+.icon-tiktok:before {
+  content: "\e90c";
+}
+.icon-facebook:before {
+  content: "\ea90";
+}
+.icon-instagram:before {
+  content: "\ea92";
+}
+.icon-rss2:before {
+  content: "\ea9c";
+}
+.icon-youtube:before {
+  content: "\ea9d";
+}
 .icon-chevron-left:before {
   content: "\e900";
 }
@@ -54,7 +75,4 @@ i {
 }
 .icon-stopwatch:before {
   content: "\e909";
-}
-.icon-twitter:before {
-  content: "\e90a";
 }

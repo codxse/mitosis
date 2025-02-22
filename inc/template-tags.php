@@ -39,7 +39,8 @@ if (!function_exists('mitosis_posted_on')) :
         
         // Estimated Reading Time
         if (get_theme_mod('mitosis_show_reading_time', true)) {
-            $reading_time = mitosis_get_reading_time(get_the_content());
+            global $post;
+            $reading_time = mitosis_get_reading_time($post->post_content);
             $output .= '<span class="reading-time meta"><i class="icon icon-stopwatch"></i>' . $reading_time . '</span>';
         }
 

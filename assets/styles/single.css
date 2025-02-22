@@ -76,6 +76,7 @@
 .related-posts-grid, .related-post {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 .related-posts-grid {
@@ -84,7 +85,6 @@
 
 .related-post {
     border-radius: 8px;
-    flex-direction: column;
 }
 
 .layout-one-column .related-post {
@@ -101,10 +101,18 @@
 
 .related-post-thumbnail {
     margin-bottom: 1rem;
+    width: 100%;
 }
 
 .related-post img {
     width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.site-main .widget-title {
+    font-size: 1.5em;
+    line-height: 1.4;
 }
 
 /**
@@ -146,22 +154,6 @@
     flex-direction: column;
 }
 
-.comment-notes { order: 0; }
-
-.comment-form-author { order: 1; }
-
-.comment-form-email { order: 2; }
-
-.comment-form-comment { order: 3; }
-
-.comment-form-url { order: 4; }
-
-.comment-form p:has(> #comment_mail_notify) { order: 5; }
-
-.comment-form-cookies-consent { order: 6; }
-
-.form-submit { order: 7; }
-
 .comment-form-comment, .comment-form-author,
 .comment-form-email, .comment-form-url {
     display: flex;
@@ -188,6 +180,10 @@
     align-items: baseline;
     gap: 1rem;
     line-height: 1.4;
+}
+
+label[for="author"], label[for="email"], label[for="comment"], label[for="url"] {
+    margin-bottom: 0.5rem;
 }
 
 p:has(> #comment_mail_notify) {

@@ -62,7 +62,7 @@ function mitosis_pagination() {
     // Previous link
     if ($paged > 1) {
         echo '<a class="prev page-numbers" aria-label="Go to previous page" href="' . esc_url(get_previous_posts_page_link()) . '">' . 
-             '<i class="icon-chevron-left"></i>' . 
+             '<i class="icon icon-chevron-left"></i>' . 
              '</a>';
     }
 
@@ -94,7 +94,7 @@ function mitosis_pagination() {
     // Next link
     if ($paged < $max_pages) {
         echo '<a class="next page-numbers" aria-label="Go to next page" href="' . esc_url(get_next_posts_page_link()) . '">' . 
-             '<i class="icon-chevron-right"></i>' . 
+             '<i class="icon icon-chevron-right"></i>' . 
              '</a>';
     }
 

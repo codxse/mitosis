@@ -41,6 +41,7 @@ function mitosis_setup() {
 }
 add_action( 'after_setup_theme', 'mitosis_setup' );
 
+
 // Enqueue scripts and styles.
 function mitosis_scripts() {
     // Get theme information including version
@@ -94,28 +95,7 @@ function mitosis_scripts() {
 add_action( 'wp_enqueue_scripts', 'mitosis_scripts' );
 
 // Register widget areas (sidebars).
-function mitosis_widgets_init() {
-	register_sidebar( array(
-		'name'          => __( 'Left Sidebar', 'mitosis' ),
-		'id'            => 'sidebar-left',
-		'description'   => __( 'Widgets in this area will be shown on the left sidebar.', 'mitosis' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
-	) );
-
-	register_sidebar( array(
-		'name'          => __( 'Right Sidebar', 'mitosis' ),
-		'id'            => 'sidebar-right',
-		'description'   => __( 'Widgets in this area will be shown on the right sidebar.', 'mitosis' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
-	) );
-}
-add_action( 'widgets_init', 'mitosis_widgets_init' );
+require get_template_directory() . '/inc/widgets.php';
 
 // Load additional theme files.
 require get_template_directory() . '/inc/customizer.php';  // Customizer settings (logo, subtitle, layout, scripts)
@@ -128,6 +108,7 @@ require get_template_directory() . '/inc/toc.php';
 require get_template_directory() . '/inc/featured-image.php';
 require get_template_directory() . '/inc/schema.php';
 require get_template_directory() . '/inc/pagination.php';
+require get_template_directory() . '/inc/comment-form.php';
 require get_template_directory() . '/inc/comments.php';
 
 // Add hooks for the new functions

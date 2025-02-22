@@ -1,10 +1,10 @@
 /*
 Theme Name: Mitosis
 Theme URI: http://titiknadi.com/mitosis
-Author: Nadiar Sys
+Author: Nadiar Sy
 Author URI: https://titiknadi.com/mitosis
 Description: A responsive, SEO-ready theme framework with extendable layout options and custom options.
-Version: 1.0.1
+Version: 1.0.2-beta-2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: mitosis
@@ -94,7 +94,8 @@ button {
     padding: 1rem;
 }
 
-.post, .page .page, .post-navigation, .comments-area, .pagination, .page-header {
+.post, .page .page,
+.post-navigation, .below-post-widgets, .comments-area, .pagination, .page-header {
     padding-left: 1rem;
     padding-right: 1rem;
 }
@@ -175,7 +176,10 @@ img.custom-logo {
 }
 
 .shrink .header-container {
-    padding: 0.5em 1em;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 .nav-separator {
@@ -391,6 +395,10 @@ img.custom-logo {
 .featured-image, .widget-title,
 .related-posts-title {
     margin-bottom: 0.75rem;
+}
+
+.site-main ul, .site-main ol {
+    display: inline-block;
 }
  
 .site-main ul, .site-main ol, .site-main ul ul, .site-main li {
@@ -618,8 +626,10 @@ pre.wp-block-code {
 }
 
 @media (max-width: 45rem) {
-    .post, .page .page, .post-navigation, .comments-area, .pagination,
-    .header-container, .site-info, .search-close, .comment-article,
+    .post, .page .page,
+    .post-navigation, .below-post-widgets, .comments-area, .pagination,
+    .header-container, .shrink .header-container,
+    .site-info, .search-close, .comment-article,
     .related-posts, .page-header {
         padding-left: 1.5rem;
         padding-right: 1.5rem;
@@ -638,10 +648,6 @@ pre.wp-block-code {
     
     .search-toggle, .menu-toggle {
         font-size: 1.6em;
-    }
-    
-    .header-container {
-        padding: 0.5rem 1rem;
     }
      
     /**

@@ -23,6 +23,13 @@ if (have_posts()) :
             'class'     => 'post-navigation'
         ));
         
+        if ( is_active_sidebar( 'below-post-widget-area' ) ) : ?>
+            <div id="below-post-widgets" class="below-post-widgets below-post-widgets-container">
+                <?php dynamic_sidebar( 'below-post-widget-area' ); ?>
+            </div><!-- #below-post-widgets -->
+        <?php
+        endif;
+        
         // Display related posts if enabled
         mitosis_display_related_posts();
         

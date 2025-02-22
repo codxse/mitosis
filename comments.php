@@ -69,11 +69,14 @@ if ( post_password_required() ) {
        <?php endif; ?>
 
         <?php
-           comment_form(array(
-               'title_reply_before' => '<h3 id="reply-title" class="comment-reply-title">',
-               'title_reply_after'  => '</h3>',
-               'cancel_reply_link'  => '<i class="icon-close"></i> ' . __('Cancel Reply', 'mitosis'),
-           ));
+            $custom_fields = mitosis_custom_comment_form_fields();
+            comment_form(array(
+                'fields' => $custom_fields['fields'],
+                'comment_field' => $custom_fields['comment_field'],
+                'title_reply_before' => '<h3 id="reply-title" class="comment-reply-title">',
+                'title_reply_after'  => '</h3>',
+                'cancel_reply_link'  => '<i class="icon icon-close"></i> ' . __('Cancel Reply', 'mitosis'),
+            ));
         ?>
 
    <?php endif; ?>

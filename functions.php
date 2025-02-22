@@ -41,6 +41,10 @@ function mitosis_setup() {
 }
 add_action( 'after_setup_theme', 'mitosis_setup' );
 
+function remove_colors_section( $wp_customize ) {
+    $wp_customize->remove_section( 'colors' );
+}
+add_action( 'customize_register', 'remove_colors_section', 20 );
 
 // Enqueue scripts and styles.
 function mitosis_scripts() {

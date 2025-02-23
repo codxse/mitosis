@@ -122,6 +122,7 @@
  
  ol.comment-list {
      padding: 0;
+     width: 100%;
  }
  
  li.comment {

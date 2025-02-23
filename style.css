@@ -409,7 +409,7 @@ img.custom-logo {
 .single .post, .page .post,
 h1.entry-title, h2.entry-title, .site-main p, .site-main ul, .site-main ol,
 .post .wp-caption, .post .wp-block-image,
-.comments-title, .wp-block-columns {
+h2.comments-title, .wp-block-columns {
     margin-bottom: 1.5rem;
 }
 

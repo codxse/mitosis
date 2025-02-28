@@ -110,6 +110,10 @@ button {
     text-decoration: none;
 }
 
+.entry-title a:hover {
+    text-decoration: underline;
+}
+
 .entry-title, .related-post-title, .comments-title {
     line-height: 1.4;
 }
@@ -578,6 +582,7 @@ pre.wp-block-code {
      */
 
     .layout-one-column .entry-title,
+    .entry-excerpt,
     .layout-one-column .related-posts,
     .layout-one-column .post .alignwide {
         text-align: left;

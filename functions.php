@@ -129,6 +129,7 @@ function mitosis_custom_logo( $html ) {
 
     // Add the title attribute to the anchor tag
     $html = str_replace( '<a ', '<a title="' . esc_attr( $site_title ) . '" ', $html );
+    $html = str_replace( '<img ', '<img fetchpriority="high" ', $html );
 
     return $html;
 }
